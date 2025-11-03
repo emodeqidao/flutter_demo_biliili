@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -41,35 +40,41 @@ class _MainPageState extends State<MainPage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text("hello", style: TextStyle(fontSize: 30),),
+          const Text(
+            "hello",
+            style: TextStyle(fontSize: 30),
+          ),
           SubItem(
             controller: _controller,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              ElevatedButton(onPressed: () {
-                _controller.setValue(1.0);
-              }, child: Text("100%")),
-              ElevatedButton(onPressed: () {
-                _controller.setValue(0.0);
-              }, child: Text("0%"))
+              ElevatedButton(
+                  onPressed: () {
+                    _controller.setValue(1.0);
+                  },
+                  child: Text("100%")),
+              ElevatedButton(
+                  onPressed: () {
+                    _controller.setValue(0.0);
+                  },
+                  child: Text("0%"))
             ],
           )
-
         ],
       ),
     );
   }
 }
 
-class DoubleController extends ChangeNotifier{
+class DoubleController extends ChangeNotifier {
   double _value;
   DoubleController(this._value);
 
   double get value => _value;
 
-  void setValue(double value){
+  void setValue(double value) {
     _value = value;
     notifyListeners();
   }
@@ -82,21 +87,32 @@ class SubItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-    children: [
-      Text("12", style: TextStyle(fontSize: controller.value * 100 + 12),),
-      FlutterLogo(size:  controller.value * 100 + 50,),
-      ListenableBuilder(
-        listenable: controller,
-        builder: (BuildContext context, Widget? child) {
-        return Slider(value: controller.value, onChanged: (v) {
-          controller.setValue(v);
-          print(v);
-        });
-      },
+      children: [
 
-      ),
-    ],
-      );
+
+        ListenableBuilder(
+          listenable: controller,
+          builder: (BuildContext context, Widget? child) {
+            return Column(
+              children: [
+                Text(
+                  "xixi",
+                  style: TextStyle(fontSize: controller.value * 100 + 12),
+                ),
+                FlutterLogo(
+                  size: controller.value * 100 + 50,
+                ),
+                Slider(
+                    value: controller.value,
+                    onChanged: (v) {
+                      controller.setValue(v);
+                      print(v);
+                    }),
+              ],
+            );
+          },
+        ),
+      ],
+    );
   }
 }
-
