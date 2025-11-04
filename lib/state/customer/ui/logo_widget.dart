@@ -7,7 +7,7 @@ class LogoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = LogoProvierWidget.of(context);
+    final provider = LogoProviderWidget.of(context);
 
     return Card(
       child: ListenableBuilder(

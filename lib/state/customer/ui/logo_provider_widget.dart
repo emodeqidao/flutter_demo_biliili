@@ -3,16 +3,17 @@ import 'package:flutter/cupertino.dart';
 
 import '../model/logo_model.dart';
 
-class LogoProvierWidget extends InheritedWidget {
+class LogoProviderWidget extends InheritedWidget {
   final LogoModel model;
-  const LogoProvierWidget({super.key, required this.model, required super.child});
+  const LogoProviderWidget({super.key, required this.model, required super.child});
 
-  static LogoProvierWidget? of (BuildContext context) {
-    return context.dependOnInheritedWidgetOfExactType<LogoProvierWidget>();
+  static LogoProviderWidget? of (BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType<LogoProviderWidget>();
   }
 
   @override
-  bool updateShouldNotify(covariant LogoProvierWidget oldWidget) {
+  bool updateShouldNotify(covariant LogoProviderWidget oldWidget) {
+    print('updateShouldNotify');
     return model != oldWidget.model;
   }
 }
