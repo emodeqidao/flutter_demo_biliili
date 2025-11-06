@@ -7,6 +7,6 @@ class MyInheritedWidget<T> extends InheritedWidget {
   @override
   bool updateShouldNotify(covariant MyInheritedWidget oldWidget) {
     print('updateShouldNotify');
-    return oldWidget.model != model;
+    return true;
   }
 }

@@ -7,7 +7,7 @@ class MyProvider<T extends Listenable> extends StatefulWidget {
   const MyProvider({super.key, required this.child, required this.create});
 
   @override
-  State<MyProvider> createState() => _MyProviderState<T>();
+  State<MyProvider<T>> createState() => _MyProviderState<T>();
 
   static T? of<T> (BuildContext context, {bool listen = false}) {
     if (listen) {

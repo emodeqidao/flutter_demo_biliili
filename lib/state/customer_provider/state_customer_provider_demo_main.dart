@@ -22,8 +22,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyProvider(create: () => LogoModel(),
-      child: const MainPage()),
+      home: MyProvider(
+          create: () => LogoModel(),
+          child: const MainPage(),
+      ),
     );
   }
 }
